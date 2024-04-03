@@ -18,19 +18,19 @@ rule: there are number from 1 to 10 and you have 1 atempt to guess this number`)
         let number = prompt("Enter your number:");
 
         // перевіряємо чи користувач заповнив поле
-        if (number !== null) {
+        if (number !== "") {
             // розпарсовуємо строку в число
             let par_num = parseInt(number);
-
+            // перевірка чи користувач ввів число, використовуючи метод isNaN
+            if (isNaN(par_num)) {
+                alert("It is not number")
+            }
             // робимо перевірку з випадковим числом через оператор суворого приведення типів
             if (par_num === randomNumber) {
                 alert("You won");
             }
-            // перевірка чи користувач ввів число
-            if (typeof par_num != 'number') {
-                alert("It is not number")
-            }
-            else {
+            // тобто якщо числа не збігаються, то повідомляємо користувачу
+            else if (par_num != randomNumber){
                 alert("You lost, it was: " + randomNumber);
             }
         }
