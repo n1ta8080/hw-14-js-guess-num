@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS practise</title>
+</head>
+<body>
+    <script>
+    alert(`Hello user! It's a game "Guess the number"
+rule: there are number from 1 to 10 and you have 1 atempt to guess this number`);
+
+    let agree = confirm("Would you like to play and try your intuition?");
+    //якщо користувач погоджується, то запускаєм гру
+    if (agree) {
+
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        let number = prompt("Enter your number:");
+
+        // перевіряємо чи користувач заповнив поле
+        if (number !== null) {
+            // розпарсовуємо строку в число
+            let par_num = parseInt(number);
+
+            // робимо перевірку з випадковим числом через оператор суворого приведення типів
+            if (par_num === randomNumber) {
+                alert("You won");
+            }
+            // перевірка чи користувач ввів число
+            if (typeof par_num != 'number') {
+                alert("It is not number")
+            }
+            else {
+                alert("You lost, it was: " + randomNumber);
+            }
+        }
+        else {
+            alert("You left field empty!")
+        }
+    }
+    else {
+        alert("Okay, maybe next time")
+    }
+    </script>
+</body>
+</html>
